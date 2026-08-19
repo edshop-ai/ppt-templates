@@ -1,0 +1,115 @@
+{
+  "$comment": "Index of generated slide templates. Every generation appends or bumps an entry here. Bump version rather than overwriting so decks built on an older template stay traceable.",
+  "schema_version": 1,
+  "updated": "2026-08-19",
+  "grid": "styles/grid.json",
+  "bands": {
+    "pre_primary": {
+      "core_set": "not_started",
+      "subjects": {}
+    },
+    "g1_2": {
+      "core_set": "not_started",
+      "subjects": {}
+    },
+    "g3_5": {
+      "core_set": "not_started",
+      "subjects": {}
+    },
+    "g6_8": {
+      "core_set": "not_started",
+      "subjects": {}
+    },
+    "g9_10": {
+      "core_set": "not_started",
+      "subjects": {}
+    },
+    "g11_12": {
+      "core_set": "not_started",
+      "subjects": {
+        "science_biology": "in_progress"
+      }
+    },
+    "higher_ed": {
+      "core_set": "not_started",
+      "subjects": {}
+    }
+  },
+  "core_archetypes": [
+    "cover",
+    "agenda",
+    "section_divider",
+    "image_bullets",
+    "multi_image_grid",
+    "data_table",
+    "recall_list",
+    "closing_checklist"
+  ],
+  "templates": [
+    {
+      "template_id": "g11_12__biology__labeled_diagram__v1",
+      "grade_band": "g11_12",
+      "subject": "science_biology",
+      "archetype": "labeled_diagram",
+      "version": 1,
+      "status": "approved",
+      "generated": "2026-08-19",
+      "html": "g11_12__biology__labeled_diagram__v1.html",
+      "manifest": "g11_12__biology__labeled_diagram__v1.json",
+      "filled_example": "examples/g11_12__biology__labeled_diagram__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#1E3A8A",
+      "capacity": {
+        "legend_rows": {
+          "min": 4,
+          "max": 5
+        }
+      },
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "stress_test": true
+      },
+      "supersedes": null,
+      "notes": "Two-pane split per grid.json. Legend rows at 90px pitch; 5 max. No divider rule."
+    },
+    {
+      "template_id": "g11_12__biology__process_flow__v1",
+      "grade_band": "g11_12",
+      "subject": "science_biology",
+      "archetype": "process_flow",
+      "version": 1,
+      "status": "approved",
+      "generated": "2026-08-19",
+      "html": "g11_12__biology__process_flow__v1.html",
+      "manifest": "g11_12__biology__process_flow__v1.json",
+      "filled_example": "examples/g11_12__biology__process_flow__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#1E3A8A",
+      "capacity": {
+        "steps": {
+          "min": 3,
+          "max": 5
+        }
+      },
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "stress_test": true
+      },
+      "supersedes": null,
+      "notes": "5-column grid per grid.json. Connectors reported as single shape_type arrow; badge circle and numeral are sibling elements."
+    }
+  ],
+  "next_up": [
+    "g11_12 core set (8 archetypes) — carries across all g11_12 subjects",
+    "g11_12 chemistry: formula_derivation, data_table",
+    "g9_10 core set"
+  ]
+}
