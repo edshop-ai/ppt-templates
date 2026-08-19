@@ -1,0 +1,135 @@
+{
+  "pre_primary": {
+    "label": "Nursery / LKG / UKG",
+    "density": "very_low",
+    "max_bullets": 3,
+    "max_words_per_bullet": 4,
+    "tone": "storybook, extremely playful",
+    "illustration_style": "big rounded storybook illustrations, mascot-style characters",
+    "decoration_level": "high",
+    "font_heading": "Nunito",
+    "font_body": "Nunito",
+    "base_title_pt": 44,
+    "base_body_pt": 28,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#FF9F1C",
+      "text_primary": "#2B2B2B",
+      "text_secondary": "#5A5A5A"
+    }
+  },
+  "g1_2": {
+    "label": "Grades 1-2",
+    "density": "low",
+    "max_bullets": 4,
+    "max_words_per_bullet": 8,
+    "tone": "playful, warm",
+    "illustration_style": "illustration-heavy, rounded cards, pill labels, numbered circle badges",
+    "decoration_level": "high",
+    "font_heading": "Poppins",
+    "font_body": "Nunito",
+    "base_title_pt": 36,
+    "base_body_pt": 20,
+    "colors": {
+      "background": "#F3F9F1",
+      "accent_default": "#2F7A4F",
+      "text_primary": "#1F2937",
+      "text_secondary": "#4B5563"
+    }
+  },
+  "g3_5": {
+    "label": "Grades 3-5",
+    "density": "low_medium",
+    "max_bullets": 5,
+    "max_words_per_bullet": 10,
+    "tone": "friendly, more school-like",
+    "illustration_style": "mix of illustration and simple labeled diagrams, still colorful",
+    "decoration_level": "medium_high",
+    "font_heading": "Poppins",
+    "font_body": "Open Sans",
+    "base_title_pt": 32,
+    "base_body_pt": 18,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#2563EB",
+      "text_primary": "#1F2937",
+      "text_secondary": "#4B5563"
+    }
+  },
+  "g6_8": {
+    "label": "Grades 6-8",
+    "density": "medium",
+    "max_bullets": 6,
+    "max_words_per_bullet": 14,
+    "tone": "neutral-friendly, less cartoonish",
+    "illustration_style": "labeled diagrams start replacing pure illustration, simple charts appear",
+    "decoration_level": "medium",
+    "font_heading": "Inter",
+    "font_body": "Inter",
+    "base_title_pt": 30,
+    "base_body_pt": 17,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#0F766E",
+      "text_primary": "#111827",
+      "text_secondary": "#4B5563"
+    }
+  },
+  "g9_10": {
+    "label": "Grades 9-10",
+    "density": "medium_high",
+    "max_bullets": 6,
+    "max_words_per_bullet": 18,
+    "tone": "academic-neutral",
+    "illustration_style": "diagrams, basic data viz, subject-accurate figures required",
+    "decoration_level": "low_medium",
+    "font_heading": "Inter",
+    "font_body": "Source Serif 4",
+    "base_title_pt": 28,
+    "base_body_pt": 16,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#1D4ED8",
+      "text_primary": "#111827",
+      "text_secondary": "#374151"
+    }
+  },
+  "g11_12": {
+    "label": "Grades 11-12",
+    "density": "high",
+    "max_bullets": 7,
+    "max_words_per_bullet": 20,
+    "tone": "formal/academic",
+    "illustration_style": "precise diagrams, charts, equations, citations, minimal decoration",
+    "decoration_level": "low",
+    "font_heading": "Inter",
+    "font_body": "Source Serif 4",
+    "base_title_pt": 26,
+    "base_body_pt": 15,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#1E3A8A",
+      "text_primary": "#111827",
+      "text_secondary": "#374151"
+    }
+  },
+  "higher_ed": {
+    "label": "Higher Education",
+    "density": "very_high",
+    "max_bullets": 8,
+    "max_words_per_bullet": 22,
+    "tone": "professional/clinical",
+    "illustration_style": "no illustration, no playful elements, discipline-specific rigor only",
+    "decoration_level": "minimal",
+    "font_heading": "Inter",
+    "font_body": "Inter",
+    "base_title_pt": 24,
+    "base_body_pt": 14,
+    "colors": {
+      "background": "#FFFFFF",
+      "accent_default": "#111827",
+      "text_primary": "#111827",
+      "text_secondary": "#4B5563"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "engineering": {
+    "label": "Engineering (Civil / Mechanical / Electrical / Electronics)",
+    "note": "Shared track — these disciplines overlap enough in slide shape to use one layout set rather than four.",
+    "additional_archetypes": ["labeled_diagram", "formula_derivation", "data_table", "case_study"],
+    "image_source_policy": "extracted_required",
+    "notes": "Schematics, CAD drawings, spec/tolerance tables must be source-accurate."
+  },
+  "computer_science": {
+    "label": "Computer Science",
+    "additional_archetypes": ["code_block", "process_flow", "data_table"],
+    "image_source_policy": "generated_ok",
+    "notes": "Architecture/flow diagrams can be generated if clearly labeled; algorithm code must be exact, never paraphrased."
+  },
+  "medicine": {
+    "label": "Medicine",
+    "additional_archetypes": ["labeled_diagram", "case_study", "data_table"],
+    "image_source_policy": "extracted_required",
+    "notes": "Anatomical and clinical images must be source-accurate — never generate anatomical diagrams from scratch."
+  },
+  "dental": {
+    "label": "Dental",
+    "additional_archetypes": ["labeled_diagram", "case_study", "data_table"],
+    "image_source_policy": "extracted_required",
+    "notes": "Same accuracy requirement as medicine."
+  },
+  "arts": {
+    "label": "Arts",
+    "additional_archetypes": ["image_bullets", "case_study"],
+    "image_source_policy": "extracted_preferred",
+    "notes": "Image-critique-heavy: large image + annotation layout is the dominant pattern, not diagram/data density."
+  },
+  "other": {
+    "label": "Other / Unclassified Higher Ed",
+    "additional_archetypes": [],
+    "image_source_policy": "extracted_preferred",
+    "notes": "Fallback to core archetypes + higher_ed style tokens until volume justifies a dedicated track."
+  }
+}

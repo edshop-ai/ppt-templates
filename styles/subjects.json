@@ -1,0 +1,50 @@
+{
+  "science_biology": {
+    "label": "Science / Biology",
+    "additional_archetypes": ["labeled_diagram", "process_flow"],
+    "image_source_policy": "extracted_required_for_diagrams",
+    "notes": "Diagrams (cell structures, anatomy, life cycles) must come from extracted source figures, not generated art, once past g3_5."
+  },
+  "chemistry": {
+    "label": "Chemistry",
+    "additional_archetypes": ["labeled_diagram", "formula_derivation", "data_table"],
+    "image_source_policy": "extracted_required_for_diagrams",
+    "notes": "Molecular structures and reaction equations need accurate rendering; do not let image-gen invent structures."
+  },
+  "physics": {
+    "label": "Physics",
+    "additional_archetypes": ["formula_derivation", "process_flow", "data_table"],
+    "image_source_policy": "mixed",
+    "notes": "Vector/force diagrams often need precise extracted figures; generic illustrative diagrams can be generated."
+  },
+  "math": {
+    "label": "Mathematics",
+    "additional_archetypes": ["formula_derivation", "process_flow", "data_table"],
+    "image_source_policy": "generated_ok",
+    "notes": "Graphs/plots may be generated programmatically (e.g. matplotlib) rather than via image-gen or extraction."
+  },
+  "history_social_studies": {
+    "label": "History / Social Studies",
+    "additional_archetypes": ["process_flow", "data_table"],
+    "image_source_policy": "extracted_required_for_maps_and_primary_sources",
+    "notes": "Maps and primary-source images must be extracted/accurate; portrait illustrations can be generated for younger bands."
+  },
+  "language_arts": {
+    "label": "Language Arts / Literature",
+    "additional_archetypes": ["case_study"],
+    "image_source_policy": "generated_ok",
+    "notes": "Mostly text-driven; low reliance on diagrams."
+  },
+  "computer_science_k12": {
+    "label": "Computer Science (K-12 intro)",
+    "additional_archetypes": ["code_block", "process_flow"],
+    "image_source_policy": "generated_ok",
+    "notes": "Keep code examples short and large-font for readability at K-12 density levels."
+  },
+  "general_default": {
+    "label": "General / Unspecified Subject",
+    "additional_archetypes": [],
+    "image_source_policy": "generated_ok",
+    "notes": "Fallback when subject tagging is unavailable — use only core archetypes."
+  }
+}

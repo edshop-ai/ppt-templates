@@ -1,0 +1,52 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Slide Template Layout Manifest",
+  "type": "object",
+  "required": ["template_id", "elements", "colors", "fonts"],
+  "properties": {
+    "template_id": {
+      "type": "string",
+      "description": "grade_band__subject_or_track__archetype__vN"
+    },
+    "elements": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "role", "left", "top", "width", "height"],
+        "properties": {
+          "id": { "type": "string" },
+          "role": {
+            "type": "string",
+            "enum": ["title", "subtitle", "body_text", "bullet", "image", "label", "shape", "table"]
+          },
+          "left": { "type": "number" },
+          "top": { "type": "number" },
+          "width": { "type": "number" },
+          "height": { "type": "number" },
+          "font": { "type": "string" },
+          "font_size_pt": { "type": "number" },
+          "color_hex": { "type": "string" },
+          "max_chars": { "type": "number" }
+        }
+      }
+    },
+    "colors": {
+      "type": "object",
+      "required": ["accent", "background", "text_primary", "text_secondary"],
+      "properties": {
+        "accent": { "type": "string" },
+        "background": { "type": "string" },
+        "text_primary": { "type": "string" },
+        "text_secondary": { "type": "string" }
+      }
+    },
+    "fonts": {
+      "type": "object",
+      "required": ["heading", "body"],
+      "properties": {
+        "heading": { "type": "string" },
+        "body": { "type": "string" }
+      }
+    }
+  }
+}
