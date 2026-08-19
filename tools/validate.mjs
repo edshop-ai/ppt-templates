@@ -13,6 +13,9 @@
  *      of that field at once (the real worst case)
  *   4. every role:"shape" declares shape_type
  *   5. examples/{template_id}__filled.html exists and also fits at 1280x720
+ *   6. WEBFONTS actually loaded before any measurement (document.fonts.check)
+ *   7. every text box is at least lines * intrinsic-line-box tall for its font
+ *   8. every filled example string is within its manifest's max_chars
  * Exit code 1 on any failure.
  */
 import { readFile, readdir, access } from "node:fs/promises";
@@ -39,12 +42,91 @@ async function targets() {
 }
 
 function lorem(n) {
-  // Long technical compounds — the real worst case for narrow columns.
-  const words = ["intermembrane", "phosphorylation", "oxidative", "chromatin", "cisternae",
-                 "decarboxylated", "mitochondrial", "hydrolytic", "ribosome", "gradient"];
+  // Mixed case WITH capitals and descenders: lowercase-only filler understates
+  // vertical ink and produces caps that clip in real use. Long compounds also
+  // matter because narrow columns wrap whole words early.
+  const words = ["Wonderful", "Ágjpqy", "intermembrane", "Bright", "phosphorylation",
+                 "Journey", "decarboxylated", "Quickly", "mitochondrial", "Happy"];
   let s = "";
-  while (s.length < n) s += (s ? " " : "") + words[s.length % words.length];
+  let i = 0;
+  while (s.length < n) { s += (s ? " " : "") + words[i++ % words.length]; }
   return s.slice(0, n);
+}
+
+/**
+ * Force every font/size/weight combination used by token-bearing elements to
+ * load, then confirm it. A cap measured against a fallback font is worthless:
+ * this is exactly how a whole style shipped with unsafe max_chars once.
+ */
+async function ensureFontsLoaded(page, label) {
+  const result = await page.evaluate(async () => {
+    const specs = new Set();
+    for (const el of document.querySelectorAll(".slide *")) {
+      if (el.children.length || !el.textContent.trim()) continue;
+      const cs = getComputedStyle(el);
+      const fam = cs.fontFamily.split(",")[0].replace(/["']/g, "").trim();
+      specs.add(`${cs.fontWeight} ${cs.fontSize} "${fam}"`);
+    }
+    for (const s of specs) { try { await document.fonts.load(s); } catch (e) {} }
+    await document.fonts.ready;
+    return [...specs].filter(s => !document.fonts.check(s));
+  });
+  if (result.length) err(label, `webfont(s) never loaded, so any measurement is against a fallback: ${result.join(", ")}`);
+  return result.length === 0;
+}
+
+/**
+ * Intrinsic line box check. A box whose height equals nominal line-height but
+ * whose font has a taller natural line box clips silently on EVERY element.
+ */
+async function checkLineBoxes(page, label) {
+  const bad = await page.evaluate(() => {
+    const out = [];
+    const probe = document.createElement("div");
+    probe.style.cssText = "position:absolute;left:-9999px;top:0;white-space:nowrap;line-height:normal;visibility:hidden";
+    probe.textContent = "Ágjpqy Wonderful";
+    document.body.appendChild(probe);
+    for (const el of document.querySelectorAll(".slide *")) {
+      if (el.children.length || !el.textContent.trim()) continue;
+      const cs = getComputedStyle(el);
+      const fs = parseFloat(cs.fontSize);
+      if (!fs) continue;
+      probe.style.font = `${cs.fontStyle} ${cs.fontWeight} ${cs.fontSize} ${cs.fontFamily}`;
+      const natural = probe.getBoundingClientRect().height;
+      const lh = parseFloat(cs.lineHeight) || natural;
+      const ratio = natural / fs;
+      const lines = Math.max(1, Math.round(el.clientHeight / lh));
+      const needed = lines * Math.max(lh, natural);
+      if (el.clientHeight + 1 < needed) {
+        out.push({ cls: el.className, fs, lh, natural: Math.round(natural),
+                   ratio: Math.round(ratio * 100) / 100, lines,
+                   have: el.clientHeight, need: Math.ceil(needed) });
+      }
+    }
+    probe.remove();
+    return out;
+  });
+  for (const b of bad)
+    err(label, `.${b.cls}: box ${b.have}px holds ${b.lines} line(s) but ${b.fs}px type has a ${b.ratio}x intrinsic line box (${b.natural}px) — needs ${b.need}px. Raise line-height to >= the natural box and size the element as lines * line-height.`);
+  return bad.length === 0;
+}
+
+/** Every string in the filled example must be within the manifest's max_chars. */
+async function checkExampleAgainstCaps(page, manifest, label) {
+  const caps = {};
+  for (const el of manifest.elements ?? []) if (el.max_chars != null) caps[el.id] = el.max_chars;
+  const over = await page.evaluate((caps) => {
+    const out = [];
+    for (const [id, cap] of Object.entries(caps)) {
+      const el = document.querySelector("." + id);
+      if (!el || el.children.length) continue;
+      const len = el.textContent.trim().length;
+      if (len > cap) out.push({ id, len, cap, text: el.textContent.trim().slice(0, 40) });
+    }
+    return out;
+  }, caps);
+  for (const o of over)
+    err(label, `example copy exceeds its own manifest cap: ${o.id} is ${o.len} chars, cap ${o.cap} — "${o.text}". Example and manifest must agree; they are the visual QA artifact.`);
 }
 
 async function validate(browser, id) {
@@ -72,7 +154,9 @@ async function validate(browser, id) {
     const label = isFilled ? id + " (filled)" : id;
 
     await page.goto("file://" + target, { waitUntil: "networkidle0" });
-    await page.evaluate(() => document.fonts.ready);
+    await ensureFontsLoaded(page, label);
+    await checkLineBoxes(page, label);
+    if (isFilled) await checkExampleAgainstCaps(page, manifest, label);
 
     const box = await page.evaluate(() => {
       const s = document.querySelector(".slide") || document.body;
@@ -91,6 +175,7 @@ async function validate(browser, id) {
       const out = [];
       for (const el of document.querySelectorAll(".slide *")) {
         if (el.children.length) continue;
+        if (/\{\{[a-z0-9_]+\}\}/i.test(el.textContent)) continue;
         if (el.scrollHeight > el.clientHeight + 1) out.push({ cls: el.className, kind: "height", have: el.clientHeight, need: el.scrollHeight, text: el.textContent.slice(0, 40) });
         else if (getComputedStyle(el).whiteSpace === "nowrap" && el.scrollWidth > el.clientWidth + 1) out.push({ cls: el.className, kind: "width", have: el.clientWidth, need: el.scrollWidth, text: el.textContent.slice(0, 40) });
       }
@@ -101,7 +186,7 @@ async function validate(browser, id) {
 
   // stress test the token template: fill every field to its declared max_chars at once
   await page.goto("file://" + htmlPath, { waitUntil: "networkidle0" });
-  await page.evaluate(() => document.fonts.ready);
+  await ensureFontsLoaded(page, id + " (stress)");
   const caps = (manifest.elements ?? [])
     .filter(el => TEXT_ROLES.has(el.role) && el.max_chars)
     .map(el => ({ id: el.id, text: lorem(el.max_chars) }));

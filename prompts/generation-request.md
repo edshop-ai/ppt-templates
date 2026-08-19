@@ -12,6 +12,7 @@ Refer to these files in edshop-ai/ppt-templates@main before designing:
   registry.json                     (what already exists — bump versions, don't overwrite)
 
 Generate these archetypes: [ARCHETYPE_LIST]
+Style: [STYLE]   (optional — omit for the default 'clean'; see styles/styles.json)
 
 Deliver per archetype:
   1. {grade_band}__{subject}__{archetype}__v{n}.html
@@ -43,6 +44,19 @@ Subject-specific, generate only after the core set for that band is approved:
 | history_social_studies | process_flow, data_table |
 | language_arts | case_study |
 | computer_science_k12 | code_block, process_flow |
+
+## Styles
+
+`STYLE` — `clean` (default, all bands and subjects) · `notebook` (g1_2 and g3_5 language_arts only)
+
+Omit the style line entirely for clean. A style that does not cover the requested band or
+subject falls back to clean per-slide, not per-deck. A non-default style inserts its id into
+the filename before the version: `g3_5__english__story_map__notebook__v1`. Clean templates
+keep their existing three-segment names.
+
+Each style declares its own archetype set. `notebook` swaps the science archetypes for
+English-specific pages (`vocabulary_card`, `story_map`, `reading_passage`) and maps the rest
+through `substitutes`.
 
 ## Batching
 

@@ -1,0 +1,516 @@
+{
+  "$comment": "The STYLE axis. A template is identified by grade_band x subject x archetype x STYLE. style is OPTIONAL on every request: when absent, or when the requested style does not apply to that band/subject, the generator falls back to 'clean'. Adding a style later means adding an entry here plus its template files — no change to the schema, the grid, or the service. A style now also declares a GRAMMAR: its own archetype set named in teacher language, surfaced per slide in stage_label. That is what makes a deck navigable, and it is why two styles can share geometry yet feel unrelated.",
+  "schema_version": 1,
+  "default_style": "clean",
+  "filename_pattern": {
+    "with_style": "{grade_band}__{subject}__{archetype}__{style}__v{n}",
+    "clean": "{grade_band}__{subject}__{archetype}__v{n}",
+    "$note": "The default style 'clean' carries NO style segment, so every existing template path stays valid. Any non-default style inserts its id before the version."
+  },
+  "resolution": {
+    "steps": [
+      "1. If no style param, use default_style.",
+      "2. Look up styles[style]. Unknown id -> fall back to default_style and warn.",
+      "3. Check applies_to: if the band or subject is not covered, fall back to default_style and warn.",
+      "4. Read styles[style].variants[band] for that band's fonts, scale and export mode. A style with no variant for the band is not usable there — fall back.",
+      "5. Check archetypes: if the requested archetype is not in the style's set, use substitutes, or fall back to default_style for that one slide.",
+      "6. Build the filename from filename_pattern and load the manifest."
+    ],
+    "$note": "Fallback is per-slide, not per-deck: a notebook deck that needs a data_table can render that one slide clean rather than failing.",
+    "band_coupling": "A style is band-AGNOSTIC; its VARIANTS are band-specific. The surface and the grammar never change with grade — only type scale, letterforms, item counts and export mode do. Adding a style to another band means adding a variant entry plus generating that band's template files; it never means designing a new style."
+  },
+  "styles": {
+    "clean": {
+      "label": "Clean",
+      "description": "Subject color field with reverse-type headers, white panels on a tinted page. The default for every band and subject.",
+      "status": "active",
+      "applies_to": {
+        "bands": "*",
+        "subjects": "*"
+      },
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4",
+        "source": "google",
+        "installed_on_most_machines": false,
+        "safe_fallback": "Arial / Georgia"
+      },
+      "palette_source": "styles/subject-accents.json",
+      "export": {
+        "pptx_mode": "editable",
+        "rasterize": false,
+        "$note": "Inter and Source Serif 4 degrade acceptably to Arial and Georgia, so native text export is fine."
+      },
+      "archetypes": [
+        "cover",
+        "agenda",
+        "section_divider",
+        "image_bullets",
+        "multi_image_grid",
+        "data_table",
+        "recall_list",
+        "closing_checklist",
+        "labeled_diagram",
+        "process_flow"
+      ],
+      "image_policy": "inherit_from_subject"
+    },
+    "notebook": {
+      "label": "Handwritten notebook",
+      "description": "Ruled A4-notebook pages with hand-drawn boxes, highlighter bars, taped stickies and student-voice copy. Two letterform variants: unjoined print for the earliest readers, joined handwriting above that.",
+      "status": "active",
+      "applies_to": {
+        "bands": [
+          "g1_2",
+          "g3_5",
+          "g6_8"
+        ],
+        "subjects": [
+          "language_arts"
+        ],
+        "$note": "Deliberately narrow for now. To extend, add the band or subject key here and generate its template files; nothing else changes."
+      },
+      "variants": {
+        "$comment": "Letterform and rule spacing vary by band within the one style.",
+        "g1_2": {
+          "fonts": {
+            "heading": "Andika",
+            "body": "Andika"
+          },
+          "letterforms": "unjoined print, single-storey a",
+          "rule_spacing": 60,
+          "guide_lines": true,
+          "body_px": 40
+        },
+        "g3_5": {
+          "fonts": {
+            "heading": "Caveat",
+            "body": "Caveat"
+          },
+          "letterforms": "joined handwriting",
+          "rule_spacing": 54,
+          "guide_lines": false,
+          "body_px": 38
+        },
+        "g6_8": {
+          "fonts": {
+            "heading": "Source Serif 4",
+            "body": "Source Serif 4",
+            "label": "Inter"
+          },
+          "letterforms": "none — the handwriting face is dropped at this band",
+          "rule_spacing": 40,
+          "guide_lines": false,
+          "body_px": 30,
+          "items_per_slide": "4 bullets, 5 recall points, 4 plan steps",
+          "export": "editable",
+          "$note": "The notebook IDIOM stays (ruled paper, margin rule, punch holes, hand-drawn boxes, highlighter, taped stickies) but the handwriting face goes. A 13-year-old should not read a face designed for a six-year-old. Text colours are darkened for the smaller sizes; the lighter pen and pencil remain for decoration only."
+        }
+      },
+      "palette_source": "styles/subject-accents.json",
+      "palette_note": "Uses the language_arts clay hue at the lower_primary treatment, remapped to notebook roles: page_surface -> paper, accent -> pen, accent_tint -> highlight.",
+      "export": {
+        "pptx_mode": "per_variant",
+        "$note": "g1_2 (Andika) and g3_5 (Caveat) MUST rasterize. g6_8 uses Source Serif 4 + Inter and stays natively editable."
+      },
+      "accessibility": {
+        "alt_text_required": true,
+        "min_body_px": 38,
+        "$note": "Designed for a teacher projecting to a class: body type never below 38px, roughly 40 words per page."
+      },
+      "archetypes": [
+        "cover",
+        "todays_plan",
+        "section_divider",
+        "image_bullets",
+        "multi_image_grid",
+        "vocabulary_card",
+        "story_map",
+        "reading_passage",
+        "recall_list",
+        "closing_checklist"
+      ],
+      "substitutes": {
+        "$comment": "How the clean archetype set maps onto this style's set. A request for a left-hand archetype renders the right-hand one.",
+        "agenda": "todays_plan",
+        "labeled_diagram": "vocabulary_card",
+        "process_flow": "story_map",
+        "data_table": "multi_image_grid"
+      },
+      "image_policy": "extracted_or_scanned_only",
+      "image_note": "Diagrams are the same extracted figures used by the clean style, framed in hand-drawn chrome — transparent PNG or SVG, multiply-blended onto the paper. Nothing is drawn procedurally.",
+      "palette": {
+        "paper": "#FFF9F5",
+        "rule": "#E3D4CB",
+        "margin_rule": "#E9A9A0",
+        "ink": "#3A2A24",
+        "pen": "#D2622B",
+        "pen_text": "#A8481B",
+        "pencil": "#7A675E",
+        "pencil_text": "#63534A",
+        "highlight": "#FFE8A3",
+        "sticky": "#FFF3C4",
+        "tape": "#EADFB4",
+        "$note": "pen and pencil are DECORATIVE (rules, markers, arrows, tape). Type uses pen_text and pencil_text, which are darkened to clear WCAG AA at middle-school sizes."
+      }
+    },
+    "grid_studio": {
+      "label": "Grid Studio",
+      "description": "Maths on pale graph paper with crisp square-cornered cards. Deliberately the least decorated style in the set — the grid is the only ornament.",
+      "status": "active",
+      "applies_to": {
+        "bands": [
+          "g1_2",
+          "g3_5",
+          "g6_8"
+        ],
+        "subjects": [
+          "math"
+        ],
+        "$note": "Extend by adding a band or subject key here and generating its template files."
+      },
+      "grammar": {
+        "label": "Warm-up → Concept → Worked Example → Your Turn → Challenge",
+        "stages": [
+          "Warm-up",
+          "Concept",
+          "Worked Example",
+          "Your Turn",
+          "Challenge",
+          "Wrap-up"
+        ],
+        "$note": "Every slide carries its stage name in stage_label, top right. Teachers navigate by it, so it is fixed vocabulary, not free copy."
+      },
+      "variants": {
+        "g1_2": {
+          "fonts": {
+            "heading": "Andika",
+            "body": "Andika"
+          },
+          "grid_spacing": 40,
+          "body_px": 38
+        },
+        "g3_5": {
+          "fonts": {
+            "heading": "Andika",
+            "body": "Andika"
+          },
+          "grid_spacing": 36,
+          "body_px": 38
+        },
+        "g6_8": {
+          "fonts": {
+            "heading": "Inter",
+            "body": "Inter"
+          },
+          "grid_spacing": 32,
+          "body_px": 30,
+          "items_per_slide": 4,
+          "export": "editable",
+          "$note": "Middle-school variant. Same surface and grammar, matured type: Inter instead of Andika, denser scale, four columns instead of three, ~70 words a page. Expression fields were re-measured for algebra strings like 2(x+5) = 24."
+        }
+      },
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika",
+        "source": "google",
+        "$note": "Andika in BOTH bands — a deliberate exception to the band letterform rule. Joined handwriting makes digits, minus signs and fraction bars ambiguous."
+      },
+      "palette": {
+        "paper": "#F7F9FB",
+        "panel": "#FFFFFF",
+        "grid": "#DBE5EF",
+        "ink": "#16232E",
+        "pen": "#14707A",
+        "tint": "#D7EDEF",
+        "highlight": "#FFEDA8"
+      },
+      "export": {
+        "pptx_mode": "per_variant",
+        "$note": "g1_2 and g3_5 use Andika and MUST rasterize. g6_8 uses Inter and stays natively editable — read the variant, not the style."
+      },
+      "archetypes": [
+        "cover",
+        "warm_up",
+        "concept",
+        "worked_example",
+        "your_turn",
+        "math_visual",
+        "challenge",
+        "closing_checklist"
+      ],
+      "substitutes": {
+        "agenda": "warm_up",
+        "image_bullets": "concept",
+        "process_flow": "worked_example",
+        "recall_list": "math_visual",
+        "labeled_diagram": "math_visual",
+        "data_table": "math_visual",
+        "section_divider": "warm_up"
+      },
+      "image_policy": "generated_ok",
+      "special_elements": {
+        "problem_N_workspace": "A blank ruled area with no text token — space for the student to work in. Keep it empty."
+      }
+    },
+    "field_lab": {
+      "label": "Field Lab",
+      "description": "Science as a young scientist's field journal: warm graph paper, taped specimen cards, observation boxes and hand-drawn frames.",
+      "status": "active",
+      "applies_to": {
+        "bands": [
+          "g1_2",
+          "g3_5",
+          "g6_8"
+        ],
+        "subjects": [
+          "science",
+          "science_biology",
+          "evs"
+        ]
+      },
+      "grammar": {
+        "label": "Big Question → Prediction → Investigation → Observation → Discovery",
+        "stages": [
+          "Big Question",
+          "Prediction",
+          "Investigation",
+          "Observation",
+          "Diagram",
+          "Discovery",
+          "Wrap-up"
+        ],
+        "$note": "The inquiry cycle, in the order a lesson actually runs. stage_label is fixed vocabulary."
+      },
+      "variants": {
+        "g1_2": {
+          "fonts": {
+            "heading": "Andika",
+            "body": "Andika"
+          },
+          "grid_spacing": 32,
+          "body_px": 38
+        },
+        "g3_5": {
+          "fonts": {
+            "heading": "Caveat",
+            "body": "Caveat"
+          },
+          "grid_spacing": 28,
+          "body_px": 38
+        },
+        "g6_8": {
+          "fonts": {
+            "heading": "Inter",
+            "body": "Inter"
+          },
+          "grid_spacing": 28,
+          "body_px": 30,
+          "items_per_slide": 5,
+          "export": "editable",
+          "$note": "Middle-school variant. Same surface and grammar; the hand-drawn specimen frames stay, the handwriting face does not."
+        }
+      },
+      "fonts": {
+        "source": "google",
+        "$note": "Follows the notebook letterform rule: unjoined print for earliest readers, joined handwriting from g3_5."
+      },
+      "palette": {
+        "paper": "#FAF8EF",
+        "panel": "#FFFFFF",
+        "grid": "#E4E7D8",
+        "ink": "#1E2B24",
+        "pen": "#2F7D5B",
+        "tint": "#DCEDE3",
+        "highlight": "#FFEDA8"
+      },
+      "export": {
+        "pptx_mode": "per_variant",
+        "$note": "g1_2 uses Andika and g3_5 uses Caveat, both MUST rasterize. g6_8 uses Inter and stays natively editable."
+      },
+      "archetypes": [
+        "cover",
+        "big_question",
+        "prediction",
+        "investigation",
+        "observation",
+        "labeled_diagram",
+        "discovery",
+        "closing_checklist"
+      ],
+      "substitutes": {
+        "agenda": "investigation",
+        "image_bullets": "observation",
+        "process_flow": "investigation",
+        "recall_list": "discovery",
+        "data_table": "observation",
+        "section_divider": "big_question"
+      },
+      "image_policy": "extracted_or_scanned_only",
+      "image_note": "Specimen photographs and labelled diagrams are extracted or scanned, framed in hand-drawn chrome. Nothing is drawn procedurally."
+    },
+    "archive_desk": {
+      "label": "Archive Desk",
+      "description": "Social studies on aged map-sheet paper: a wide faint graticule, archival photo mounts, a rotated passport stamp for the stage marker, and sepia rules. One surface covers geography and history.",
+      "status": "active",
+      "applies_to": {
+        "bands": [
+          "g3_5",
+          "g6_8"
+        ],
+        "subjects": [
+          "social_studies",
+          "history_social_studies",
+          "geography",
+          "civics"
+        ],
+        "$note": "g1_2 not built — social studies barely separates from general knowledge at that age. Add a variant if it becomes needed."
+      },
+      "grammar": {
+        "label": "Locate → Timeline → Evidence → Cause–Effect → Compare → So What",
+        "stages": [
+          "Locate",
+          "Timeline",
+          "Evidence",
+          "Cause–Effect",
+          "Compare",
+          "So What",
+          "Wrap-up"
+        ],
+        "$note": "Deliberately covers both halves of the subject: Locate and Compare carry geography, Timeline and Evidence carry history, Cause–Effect and So What carry the reasoning both need. The stage word sits inside the passport stamp."
+      },
+      "variants": {
+        "g3_5": {
+          "fonts": {
+            "heading": "Andika",
+            "body": "Andika",
+            "label": "Andika"
+          },
+          "graticule_spacing": 88,
+          "body_px": 34,
+          "items_per_slide": 3,
+          "export": "screenshots"
+        },
+        "g6_8": {
+          "fonts": {
+            "heading": "Source Serif 4",
+            "body": "Source Serif 4",
+            "label": "Inter"
+          },
+          "graticule_spacing": 80,
+          "body_px": 29,
+          "items_per_slide": 4,
+          "export": "editable",
+          "$note": "The serif is deliberate — history and geography should read as documents. Cause–Effect drops to three taller rows here so a cause can be a real sentence (97 characters, not 33)."
+        }
+      },
+      "palette": {
+        "paper": "#F5F0E4",
+        "panel": "#FFFDF7",
+        "graticule": "#E0D9C6",
+        "ink": "#26231E",
+        "pen": "#40476B",
+        "sepia": "#A87B4F",
+        "tint": "#E5E5EE",
+        "highlight": "#F0E0B8",
+        "pencil": "#6B6252",
+        "sepia_text": "#8A5F35",
+        "$note": "sepia is a DECORATIVE colour — rules, stamp borders, mount plates. Type in that role uses sepia_text, and captions use pencil. Both text values were darkened to clear WCAG AA at the g6_8 sizes (18–21px), because a lighter sepia that reads fine on a laptop fails from the back of a classroom."
+      },
+      "export": {
+        "pptx_mode": "per_variant",
+        "$note": "g3_5 uses Andika and MUST rasterize. g6_8 uses Source Serif 4 + Inter and stays natively editable."
+      },
+      "archetypes": [
+        "cover",
+        "locate",
+        "timeline",
+        "evidence",
+        "cause_effect",
+        "compare",
+        "so_what",
+        "closing_checklist"
+      ],
+      "substitutes": {
+        "agenda": "locate",
+        "process_flow": "timeline",
+        "image_bullets": "evidence",
+        "labeled_diagram": "locate",
+        "data_table": "compare",
+        "recall_list": "so_what",
+        "section_divider": "locate"
+      },
+      "image_policy": "extracted_or_archival_only",
+      "image_note": "Maps, archival photographs and primary-source scans only. NEVER image-generate a historical source or a map — a wrong coastline or an invented artefact is a factual error, not a stylistic one. This is the strictest image policy in the set."
+    }
+  },
+  "planned_styles": {
+    "$comment": "Not built. Listed so the axis has an obvious growth path.",
+    "chalkboard": "Dark slate surface, chalk type, for revision and recap decks.",
+    "exam_paper": "Formal question-paper layout with numbered marks in the margin.",
+    "picture_book": "Full-bleed illustration with a single line of type, for pre_primary."
+  },
+  "band_boundaries": {
+    "$comment": "SETTLED 2026-08-19 — do not re-open without evidence. Bands are g1_2 / g3_5 / g6_8 / g9_10 / g11_12 per styles/grade-bands.json, because target schools group grades 3–5 as one stage. Any earlier note proposing g1_3 / g4_5 is superseded. A style's variants key off these band ids, so changing them means regenerating every variant and retiring template ids that decks in the wild already reference.",
+    "canonical": [
+      "pre_primary",
+      "g1_2",
+      "g3_5",
+      "g6_8",
+      "g9_10",
+      "g11_12",
+      "higher_ed"
+    ],
+    "grade_3_note": "Grade 3 resolves to the g3_5 variant by design. If the joined face proves hard for grade 3 readers, swap the g3_5 font rather than re-banding — a font change needs re-measurement only."
+  },
+  "font_fallbacks": {
+    "$comment": "Fallback stacks drawn from the Microsoft font library (learn.microsoft.com/typography/font-list), so a deck opened in PowerPoint on a machine without the webfont degrades to the nearest available face rather than to Arial. Chosen on letterform anatomy, not on visual similarity at a glance.",
+    "cap_rule": "max_chars values are measured against the PRIMARY face only. Every fallback in these stacks is wider than its primary, so caps do NOT transfer. Three ways to handle it, in order of preference: (1) rasterize — the default for the Andika and Caveat variants, which sidesteps the problem entirely; (2) re-measure the caps against the actual fallback if you ship native text; (3) apply a conservative 0.85 factor to every cap. Never ship native text at the primary-face caps.",
+    "by_face": {
+      "Andika": {
+        "fallbacks": [
+          "Comic Sans MS",
+          "Segoe Print",
+          "Verdana",
+          "Arial"
+        ],
+        "reason": "Andika is a literacy face: unjoined, single-storey 'a', large x-height, unambiguous l/I/1. Comic Sans MS is the closest thing in the Microsoft library on every one of those counts and ships with Windows AND Office for Mac. Segoe Print matches the informal print texture but is Windows-only. Verdana is the legibility floor — superb on screen, but double-storey 'a', which is the one letterform early readers most need unjoined.",
+        "rejected": {
+          "Century Gothic": "single-storey 'a' but geometric and wide, and its 'l' is a bare stem — the l/I/1 ambiguity Andika exists to solve",
+          "Comic Sans reputation": "the objection is cultural, not typographic; for grade 1–2 literacy its letterforms are simply correct"
+        }
+      },
+      "Caveat": {
+        "fallbacks": [
+          "Segoe Script",
+          "Bradley Hand ITC",
+          "Comic Sans MS",
+          "Arial"
+        ],
+        "reason": "Caveat is upright joined casual handwriting. Segoe Script is the closest form match in the library. Bradley Hand ITC is semi-joined and slightly narrower, and it ships with Office, so it covers Mac better than Segoe Script does. Comic Sans MS is third: unjoined, so the wrong category, but legible where the first two are missing.",
+        "rejected": {
+          "Mistral": "heavily slanted and condensed — illegible projected",
+          "Lucida Handwriting": "strong slant and much wider; would overflow every measured box",
+          "Freestyle Script / Vladimir Script / French Script MT": "decorative display faces, not reading faces",
+          "Kristen ITC": "unjoined, so it loses the joined-handwriting role entirely"
+        }
+      },
+      "Inter": {
+        "fallbacks": [
+          "Segoe UI",
+          "Tahoma",
+          "Arial"
+        ],
+        "reason": "Humanist sans with a large x-height. Segoe UI is the closest by proportion and ships with Windows; Tahoma and Arial are near-universal."
+      },
+      "Source Serif 4": {
+        "fallbacks": [
+          "Georgia",
+          "Cambria",
+          "Times New Roman"
+        ],
+        "reason": "Transitional serif designed for screen. Georgia is the closest on x-height and stroke contrast; Cambria ships with Office; Times New Roman is the universal floor."
+      }
+    }
+  }
+}

@@ -1,0 +1,222 @@
+{
+  "$comment": "Two axes. SUBJECT picks the hue; BAND picks the treatment (chroma and page lightness). Resolve a palette by: 1) look up subjects[subject].hue, 2) find the treatment whose bands[] contains the grade band, 3) read treatments[t].palettes[hue]. band_overrides wins over both when present. Every value is literal hex, so the generator never computes color.",
+  "schema_version": 2,
+  "resolution_order": [
+    "band_overrides[band][subject]",
+    "treatments[t].palettes[ subjects[subject].hue ]",
+    "treatments.academic.palettes.blue"
+  ],
+  "constant": {
+    "panel": "#FFFFFF",
+    "text_primary": "#14181F",
+    "text_secondary": "#414A57",
+    "on_accent": "#FFFFFF",
+    "$note": "panel, text_primary, text_secondary and on_accent never vary by subject or band."
+  },
+  "subjects": {
+    "science_biology": {
+      "label": "Science / Biology",
+      "hue": "green"
+    },
+    "chemistry": {
+      "label": "Chemistry",
+      "hue": "purple"
+    },
+    "physics": {
+      "label": "Physics",
+      "hue": "blue"
+    },
+    "math": {
+      "label": "Mathematics",
+      "hue": "teal"
+    },
+    "language_arts": {
+      "label": "Language Arts / English",
+      "hue": "clay"
+    },
+    "computer_science": {
+      "label": "Computer Science",
+      "hue": "ochre"
+    },
+    "electronics": {
+      "label": "Electronics",
+      "hue": "blue",
+      "shares_with": "physics"
+    },
+    "general_default": {
+      "label": "General / Unspecified",
+      "hue": "blue"
+    }
+  },
+  "treatments": {
+    "academic": {
+      "label": "Academic — muted, formal, prints well",
+      "bands": [
+        "g9_10",
+        "g11_12",
+        "higher_ed"
+      ],
+      "palettes": {
+        "green": {
+          "accent": "#4A6B57",
+          "accent_tint": "#E1EAE4",
+          "page_surface": "#F2F6F3",
+          "on_accent_dim": "#C3D6C9",
+          "band_row": "#EDF3EF"
+        },
+        "purple": {
+          "accent": "#5E4569",
+          "accent_tint": "#E8E1EB",
+          "page_surface": "#F5F2F6",
+          "on_accent_dim": "#D0C0D6",
+          "band_row": "#F0EBF2"
+        },
+        "blue": {
+          "accent": "#33507A",
+          "accent_tint": "#DFE7F0",
+          "page_surface": "#F1F4F8",
+          "on_accent_dim": "#BFD0E4",
+          "band_row": "#EDF1F6"
+        },
+        "teal": {
+          "accent": "#2F5D63",
+          "accent_tint": "#DDE9EA",
+          "page_surface": "#F0F5F5",
+          "on_accent_dim": "#B8D2D5",
+          "band_row": "#EBF2F2"
+        },
+        "clay": {
+          "accent": "#8C5A44",
+          "accent_tint": "#EFE3DE",
+          "page_surface": "#F8F4F2",
+          "on_accent_dim": "#DEC6BB",
+          "band_row": "#F3EDEA"
+        },
+        "ochre": {
+          "accent": "#7A6432",
+          "accent_tint": "#EBE6D8",
+          "page_surface": "#F7F5EF",
+          "on_accent_dim": "#D8CDA9",
+          "band_row": "#F2EFE6"
+        }
+      }
+    },
+    "upper_primary": {
+      "label": "Upper primary — same hues, one step brighter and warmer page",
+      "bands": [
+        "g6_8"
+      ],
+      "palettes": {
+        "green": {
+          "accent": "#2F7D5B",
+          "accent_tint": "#D6EEE1",
+          "page_surface": "#F0F8F3",
+          "on_accent_dim": "#A9DCC2",
+          "band_row": "#E8F5EE"
+        },
+        "purple": {
+          "accent": "#6D3F94",
+          "accent_tint": "#E7DAF3",
+          "page_surface": "#F6F1FB",
+          "on_accent_dim": "#CBAEE6",
+          "band_row": "#F1E9F8"
+        },
+        "blue": {
+          "accent": "#1F5FA8",
+          "accent_tint": "#D8E7F7",
+          "page_surface": "#EFF5FC",
+          "on_accent_dim": "#AACCEE",
+          "band_row": "#E9F1FA"
+        },
+        "teal": {
+          "accent": "#127A80",
+          "accent_tint": "#D3EDEF",
+          "page_surface": "#EDF8F9",
+          "on_accent_dim": "#9FDBDE",
+          "band_row": "#E6F5F6"
+        },
+        "clay": {
+          "accent": "#B05A32",
+          "accent_tint": "#F7E2D7",
+          "page_surface": "#FDF5F1",
+          "on_accent_dim": "#EFC3AA",
+          "band_row": "#F9EDE6"
+        },
+        "ochre": {
+          "accent": "#9A7716",
+          "accent_tint": "#F3E9C8",
+          "page_surface": "#FCF8EA",
+          "on_accent_dim": "#E3CE86",
+          "band_row": "#F8F2DD"
+        }
+      }
+    },
+    "lower_primary": {
+      "label": "Lower primary — brightest, highest contrast, largest tint areas",
+      "bands": [
+        "g1_2",
+        "g3_5",
+        "pre_primary"
+      ],
+      "palettes": {
+        "green": {
+          "accent": "#0E8F52",
+          "accent_tint": "#CBF2DC",
+          "page_surface": "#EDFBF3",
+          "on_accent_dim": "#8FE3B4",
+          "band_row": "#E2F8EC"
+        },
+        "purple": {
+          "accent": "#7B2FB8",
+          "accent_tint": "#EBD6FB",
+          "page_surface": "#F8F0FE",
+          "on_accent_dim": "#CFA3F0",
+          "band_row": "#F3E6FC"
+        },
+        "blue": {
+          "accent": "#0B6BD3",
+          "accent_tint": "#D2E7FC",
+          "page_surface": "#ECF5FE",
+          "on_accent_dim": "#9CC9F5",
+          "band_row": "#E3F0FD"
+        },
+        "teal": {
+          "accent": "#0797A0",
+          "accent_tint": "#C9F0F3",
+          "page_surface": "#EAFAFB",
+          "on_accent_dim": "#8ADFE5",
+          "band_row": "#DFF6F8"
+        },
+        "clay": {
+          "accent": "#D2622B",
+          "accent_tint": "#FCE0CE",
+          "page_surface": "#FFF4EC",
+          "on_accent_dim": "#F7BE96",
+          "band_row": "#FDEADF"
+        },
+        "ochre": {
+          "accent": "#B98A00",
+          "accent_tint": "#F9EBBC",
+          "page_surface": "#FEFAE6",
+          "on_accent_dim": "#EBCF6B",
+          "band_row": "#FCF4D6"
+        }
+      }
+    }
+  },
+  "band_overrides": {
+    "$comment": "Escape hatch for a single band+subject that must differ from its treatment — e.g. a school brand color. Same key set as a palette. Empty by default.",
+    "$example": {
+      "g6_8": {
+        "science_biology": {
+          "accent": "#7A1F2B",
+          "accent_tint": "#F2DFE1",
+          "page_surface": "#FBF4F5",
+          "on_accent_dim": "#E0B4B9",
+          "band_row": "#F7EAEC"
+        }
+      }
+    }
+  },
+  "banding_note": "Treatment groups reference the band keys in styles/grade-bands.json. Grades 5 and 6 currently fall in DIFFERENT bands there (g3_5 and g6_8), so they resolve to different treatments — lower_primary and upper_primary respectively. If you want grades 5-6 to share one look, add a g5_6 band to grade-bands.json and move it into a single treatment's bands[] here; nothing else needs to change."
+}

@@ -1,0 +1,25 @@
+{
+  "$comment": "Merge these two keys into styles/subjects.json. computer_science is the 11-12 counterpart of computer_science_k12 (same archetypes, no 'keep it short for young learners' constraint). electronics reuses the physics palette and archetype set — schematics behave like force diagrams.",
+  "computer_science": {
+    "label": "Computer Science (Grades 11-12)",
+    "additional_archetypes": [
+      "code_block",
+      "process_flow",
+      "data_table"
+    ],
+    "image_source_policy": "generated_ok",
+    "notes": "Code panels use JetBrains Mono or Source Code Pro (the documented exception to the band font rule). Diagrams of architecture or data flow can be generated."
+  },
+  "electronics": {
+    "label": "Electronics",
+    "additional_archetypes": [
+      "labeled_diagram",
+      "formula_derivation",
+      "data_table",
+      "process_flow"
+    ],
+    "image_source_policy": "extracted_required_for_schematics",
+    "palette": "physics",
+    "notes": "Circuit schematics must be extracted or drawn from an accurate source, never image-generated — component symbols and connection topology have to be exact. Otherwise identical to physics: same archetypes, same palette."
+  }
+}

@@ -10,25 +10,47 @@
     },
     "g1_2": {
       "core_set": "not_started",
-      "subjects": {}
+      "subjects": {
+        "language_arts": "notebook_style_only",
+        "math": "grid_studio",
+        "science": "field_lab"
+      }
     },
     "g3_5": {
       "core_set": "not_started",
-      "subjects": {}
+      "subjects": {
+        "language_arts": "notebook_style_only",
+        "math": "grid_studio",
+        "science": "field_lab",
+        "social_studies": "archive_desk"
+      }
     },
     "g6_8": {
       "core_set": "not_started",
-      "subjects": {}
+      "tier": "activity",
+      "subjects": {
+        "math": "grid_studio",
+        "science": "field_lab",
+        "social_studies": "archive_desk",
+        "language_arts": "notebook"
+      }
     },
     "g9_10": {
       "core_set": "not_started",
       "subjects": {}
     },
     "g11_12": {
-      "core_set": "not_started",
+      "core_set": "pending_review",
       "subjects": {
-        "science_biology": "in_progress"
-      }
+        "science_biology": "covered_by_core",
+        "chemistry": "needs_formula_derivation",
+        "physics": "needs_formula_derivation",
+        "math": "needs_formula_derivation",
+        "language_arts": "needs_case_study",
+        "computer_science": "needs_code_block",
+        "electronics": "needs_formula_derivation"
+      },
+      "core_subject_slot": "core"
     },
     "higher_ed": {
       "core_set": "not_started",
@@ -43,7 +65,9 @@
     "multi_image_grid",
     "data_table",
     "recall_list",
-    "closing_checklist"
+    "closing_checklist",
+    "labeled_diagram",
+    "process_flow"
   ],
   "templates": [
     {
@@ -52,7 +76,7 @@
       "subject": "science_biology",
       "archetype": "labeled_diagram",
       "version": 1,
-      "status": "approved",
+      "status": "superseded",
       "generated": "2026-08-19",
       "html": "g11_12__biology__labeled_diagram__v1.html",
       "manifest": "g11_12__biology__labeled_diagram__v1.json",
@@ -74,7 +98,8 @@
         "stress_test": true
       },
       "supersedes": null,
-      "notes": "Two-pane split per grid.json. Legend rows at 90px pitch; 5 max. No divider rule."
+      "notes": "Two-pane split per grid.json. Legend rows at 90px pitch; 5 max. No divider rule. Superseded: geometry is subject-agnostic, so it moved to the core slot and was recolored.",
+      "superseded_by": "g11_12__core__labeled_diagram__v1"
     },
     {
       "template_id": "g11_12__biology__process_flow__v1",
@@ -82,7 +107,7 @@
       "subject": "science_biology",
       "archetype": "process_flow",
       "version": 1,
-      "status": "approved",
+      "status": "superseded",
       "generated": "2026-08-19",
       "html": "g11_12__biology__process_flow__v1.html",
       "manifest": "g11_12__biology__process_flow__v1.json",
@@ -104,12 +129,2885 @@
         "stress_test": true
       },
       "supersedes": null,
-      "notes": "5-column grid per grid.json. Connectors reported as single shape_type arrow; badge circle and numeral are sibling elements."
+      "notes": "5-column grid per grid.json. Connectors reported as single shape_type arrow; badge circle and numeral are sibling elements. Superseded: geometry is subject-agnostic, so it moved to the core slot and was recolored.",
+      "superseded_by": "g11_12__core__process_flow__v1"
+    },
+    {
+      "template_id": "g11_12__core__cover__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "cover",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__cover__v1.html",
+      "manifest": "g11_12__core__cover__v1.json",
+      "filled_example": "examples/g11_12__core__cover__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Left two-thirds accent field, reverse type, full-bleed portrait image right"
+    },
+    {
+      "template_id": "g11_12__core__agenda__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "agenda",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__agenda__v1.html",
+      "manifest": "g11_12__core__agenda__v1.json",
+      "filled_example": "examples/g11_12__core__agenda__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Accent header field, 3–5 white cards on the tinted page"
+    },
+    {
+      "template_id": "g11_12__core__section_divider__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "section_divider",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__section_divider__v1.html",
+      "manifest": "g11_12__core__section_divider__v1.json",
+      "filled_example": "examples/g11_12__core__section_divider__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Half accent field with an oversized section number; reading matter in dark type at right"
+    },
+    {
+      "template_id": "g11_12__core__image_bullets__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "image_bullets",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__image_bullets__v1.html",
+      "manifest": "g11_12__core__image_bullets__v1.json",
+      "filled_example": "examples/g11_12__core__image_bullets__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Accent header, white figure panel, bullets at the 90px pitch"
+    },
+    {
+      "template_id": "g11_12__core__multi_image_grid__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "multi_image_grid",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__multi_image_grid__v1.html",
+      "manifest": "g11_12__core__multi_image_grid__v1.json",
+      "filled_example": "examples/g11_12__core__multi_image_grid__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Tall accent header carrying the standfirst; 5 square cells with pill labels (cap 17, tightest field)"
+    },
+    {
+      "template_id": "g11_12__core__data_table__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "data_table",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__data_table__v1.html",
+      "manifest": "g11_12__core__data_table__v1.json",
+      "filled_example": "examples/g11_12__core__data_table__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "White table panel, tinted row bands, 4 columns up to 6 rows"
+    },
+    {
+      "template_id": "g11_12__core__recall_list__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "recall_list",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__recall_list__v1.html",
+      "manifest": "g11_12__core__recall_list__v1.json",
+      "filled_example": "examples/g11_12__core__recall_list__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "White list panel, up to 7 single-line statements"
+    },
+    {
+      "template_id": "g11_12__core__closing_checklist__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "closing_checklist",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__closing_checklist__v1.html",
+      "manifest": "g11_12__core__closing_checklist__v1.json",
+      "filled_example": "examples/g11_12__core__closing_checklist__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": null,
+      "notes": "Full-bleed accent, reverse type, up to 5 checked items"
+    },
+    {
+      "template_id": "g11_12__core__labeled_diagram__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "labeled_diagram",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__labeled_diagram__v1.html",
+      "manifest": "g11_12__core__labeled_diagram__v1.json",
+      "filled_example": "examples/g11_12__core__labeled_diagram__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": "g11_12__biology__labeled_diagram__v1",
+      "notes": "Promoted from biology; 4–5 legend rows at 86px pitch"
+    },
+    {
+      "template_id": "g11_12__core__process_flow__v1",
+      "grade_band": "g11_12",
+      "subject": "core",
+      "archetype": "process_flow",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g11_12__core__process_flow__v1.html",
+      "manifest": "g11_12__core__process_flow__v1.json",
+      "filled_example": "examples/g11_12__core__process_flow__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Source Serif 4"
+      },
+      "accent": "#33507A (default; per-subject at fill time)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "supersedes": "g11_12__biology__process_flow__v1",
+      "notes": "Promoted from biology; 3–5 steps with single-arrow connectors"
+    },
+    {
+      "template_id": "g1_2__english__cover__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "cover",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__cover__notebook__v1.html",
+      "manifest": "g1_2__english__cover__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__cover__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Notebook title page, taped picture frame"
+    },
+    {
+      "template_id": "g1_2__english__todays_plan__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "todays_plan",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__todays_plan__notebook__v1.html",
+      "manifest": "g1_2__english__todays_plan__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__todays_plan__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Three ringed steps (substitutes agenda)"
+    },
+    {
+      "template_id": "g1_2__english__section_divider__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "section_divider",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__section_divider__notebook__v1.html",
+      "manifest": "g1_2__english__section_divider__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__section_divider__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Oversized hand-written section number"
+    },
+    {
+      "template_id": "g1_2__english__image_bullets__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "image_bullets",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__image_bullets__notebook__v1.html",
+      "manifest": "g1_2__english__image_bullets__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__image_bullets__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "One picture, three lines, highlighted big idea"
+    },
+    {
+      "template_id": "g1_2__english__multi_image_grid__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "multi_image_grid",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__multi_image_grid__notebook__v1.html",
+      "manifest": "g1_2__english__multi_image_grid__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__multi_image_grid__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Four picture-word cells (label cap is tightest in the style)"
+    },
+    {
+      "template_id": "g1_2__english__vocabulary_card__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "vocabulary_card",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__vocabulary_card__notebook__v1.html",
+      "manifest": "g1_2__english__vocabulary_card__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__vocabulary_card__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Big word, meaning, picture, sticky with a sentence"
+    },
+    {
+      "template_id": "g1_2__english__story_map__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "story_map",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__story_map__notebook__v1.html",
+      "manifest": "g1_2__english__story_map__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__story_map__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Beginning / middle / end boxes with sketch arrows"
+    },
+    {
+      "template_id": "g1_2__english__reading_passage__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "reading_passage",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__reading_passage__notebook__v1.html",
+      "manifest": "g1_2__english__reading_passage__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__reading_passage__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Passage in a hand-drawn box, three questions"
+    },
+    {
+      "template_id": "g1_2__english__recall_list__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "recall_list",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__recall_list__notebook__v1.html",
+      "manifest": "g1_2__english__recall_list__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__recall_list__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Four ticked statements plus a boxed note"
+    },
+    {
+      "template_id": "g1_2__english__closing_checklist__notebook__v1",
+      "grade_band": "g1_2",
+      "subject": "language_arts",
+      "archetype": "closing_checklist",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__english__closing_checklist__notebook__v1.html",
+      "manifest": "g1_2__english__closing_checklist__notebook__v1.json",
+      "filled_example": "examples/g1_2__english__closing_checklist__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Three tickable checkboxes and a sign-off"
+    },
+    {
+      "template_id": "g3_5__english__cover__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "cover",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__cover__notebook__v1.html",
+      "manifest": "g3_5__english__cover__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__cover__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Notebook title page, taped picture frame"
+    },
+    {
+      "template_id": "g3_5__english__todays_plan__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "todays_plan",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__todays_plan__notebook__v1.html",
+      "manifest": "g3_5__english__todays_plan__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__todays_plan__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Three ringed steps (substitutes agenda)"
+    },
+    {
+      "template_id": "g3_5__english__section_divider__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "section_divider",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__section_divider__notebook__v1.html",
+      "manifest": "g3_5__english__section_divider__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__section_divider__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Oversized hand-written section number"
+    },
+    {
+      "template_id": "g3_5__english__image_bullets__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "image_bullets",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__image_bullets__notebook__v1.html",
+      "manifest": "g3_5__english__image_bullets__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__image_bullets__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "One picture, three lines, highlighted big idea"
+    },
+    {
+      "template_id": "g3_5__english__multi_image_grid__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "multi_image_grid",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__multi_image_grid__notebook__v1.html",
+      "manifest": "g3_5__english__multi_image_grid__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__multi_image_grid__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Four picture-word cells (label cap is tightest in the style)"
+    },
+    {
+      "template_id": "g3_5__english__vocabulary_card__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "vocabulary_card",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__vocabulary_card__notebook__v1.html",
+      "manifest": "g3_5__english__vocabulary_card__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__vocabulary_card__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Big word, meaning, picture, sticky with a sentence"
+    },
+    {
+      "template_id": "g3_5__english__story_map__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "story_map",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__story_map__notebook__v1.html",
+      "manifest": "g3_5__english__story_map__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__story_map__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Beginning / middle / end boxes with sketch arrows"
+    },
+    {
+      "template_id": "g3_5__english__reading_passage__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "reading_passage",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__reading_passage__notebook__v1.html",
+      "manifest": "g3_5__english__reading_passage__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__reading_passage__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Passage in a hand-drawn box, three questions"
+    },
+    {
+      "template_id": "g3_5__english__recall_list__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "recall_list",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__recall_list__notebook__v1.html",
+      "manifest": "g3_5__english__recall_list__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__recall_list__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Four ticked statements plus a boxed note"
+    },
+    {
+      "template_id": "g3_5__english__closing_checklist__notebook__v1",
+      "grade_band": "g3_5",
+      "subject": "language_arts",
+      "archetype": "closing_checklist",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__english__closing_checklist__notebook__v1.html",
+      "manifest": "g3_5__english__closing_checklist__notebook__v1.json",
+      "filled_example": "examples/g3_5__english__closing_checklist__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#D2622B (pen)",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser"
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Three tickable checkboxes and a sign-off"
+    },
+    {
+      "template_id": "g1_2__math__cover__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "cover",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__cover__grid_studio__v1.html",
+      "manifest": "g1_2__math__cover__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__cover__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__warm_up__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "warm_up",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__warm_up__grid_studio__v1.html",
+      "manifest": "g1_2__math__warm_up__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__warm_up__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__concept__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "concept",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__concept__grid_studio__v1.html",
+      "manifest": "g1_2__math__concept__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__concept__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__worked_example__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "worked_example",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__worked_example__grid_studio__v1.html",
+      "manifest": "g1_2__math__worked_example__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__worked_example__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__your_turn__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "your_turn",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__your_turn__grid_studio__v1.html",
+      "manifest": "g1_2__math__your_turn__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__your_turn__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__math_visual__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "math_visual",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__math_visual__grid_studio__v1.html",
+      "manifest": "g1_2__math__math_visual__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__math_visual__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__challenge__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "challenge",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__challenge__grid_studio__v1.html",
+      "manifest": "g1_2__math__challenge__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__challenge__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__math__closing_checklist__grid_studio__v1",
+      "grade_band": "g1_2",
+      "subject": "math",
+      "archetype": "closing_checklist",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__math__closing_checklist__grid_studio__v1.html",
+      "manifest": "g1_2__math__closing_checklist__grid_studio__v1.json",
+      "filled_example": "examples/g1_2__math__closing_checklist__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__cover__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "cover",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__cover__grid_studio__v1.html",
+      "manifest": "g3_5__math__cover__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__cover__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__warm_up__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "warm_up",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__warm_up__grid_studio__v1.html",
+      "manifest": "g3_5__math__warm_up__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__warm_up__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__concept__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "concept",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__concept__grid_studio__v1.html",
+      "manifest": "g3_5__math__concept__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__concept__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__worked_example__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "worked_example",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__worked_example__grid_studio__v1.html",
+      "manifest": "g3_5__math__worked_example__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__worked_example__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__your_turn__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "your_turn",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__your_turn__grid_studio__v1.html",
+      "manifest": "g3_5__math__your_turn__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__your_turn__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__math_visual__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "math_visual",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__math_visual__grid_studio__v1.html",
+      "manifest": "g3_5__math__math_visual__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__math_visual__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__challenge__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "challenge",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__challenge__grid_studio__v1.html",
+      "manifest": "g3_5__math__challenge__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__challenge__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g3_5__math__closing_checklist__grid_studio__v1",
+      "grade_band": "g3_5",
+      "subject": "math",
+      "archetype": "closing_checklist",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__math__closing_checklist__grid_studio__v1.html",
+      "manifest": "g3_5__math__closing_checklist__grid_studio__v1.json",
+      "filled_example": "examples/g3_5__math__closing_checklist__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the grid_studio grammar"
+    },
+    {
+      "template_id": "g1_2__science__cover__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "cover",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__cover__field_lab__v1.html",
+      "manifest": "g1_2__science__cover__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__cover__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__big_question__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "big_question",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__big_question__field_lab__v1.html",
+      "manifest": "g1_2__science__big_question__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__big_question__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__prediction__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "prediction",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__prediction__field_lab__v1.html",
+      "manifest": "g1_2__science__prediction__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__prediction__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__investigation__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "investigation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__investigation__field_lab__v1.html",
+      "manifest": "g1_2__science__investigation__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__investigation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__observation__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "observation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__observation__field_lab__v1.html",
+      "manifest": "g1_2__science__observation__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__observation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__labeled_diagram__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "labeled_diagram",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__labeled_diagram__field_lab__v1.html",
+      "manifest": "g1_2__science__labeled_diagram__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__labeled_diagram__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__discovery__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "discovery",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__discovery__field_lab__v1.html",
+      "manifest": "g1_2__science__discovery__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__discovery__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g1_2__science__closing_checklist__field_lab__v1",
+      "grade_band": "g1_2",
+      "subject": "science",
+      "archetype": "closing_checklist",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g1_2__science__closing_checklist__field_lab__v1.html",
+      "manifest": "g1_2__science__closing_checklist__field_lab__v1.json",
+      "filled_example": "examples/g1_2__science__closing_checklist__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__cover__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "cover",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__cover__field_lab__v1.html",
+      "manifest": "g3_5__science__cover__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__cover__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__big_question__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "big_question",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__big_question__field_lab__v1.html",
+      "manifest": "g3_5__science__big_question__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__big_question__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__prediction__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "prediction",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__prediction__field_lab__v1.html",
+      "manifest": "g3_5__science__prediction__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__prediction__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__investigation__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "investigation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__investigation__field_lab__v1.html",
+      "manifest": "g3_5__science__investigation__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__investigation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__observation__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "observation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__observation__field_lab__v1.html",
+      "manifest": "g3_5__science__observation__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__observation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__labeled_diagram__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "labeled_diagram",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__labeled_diagram__field_lab__v1.html",
+      "manifest": "g3_5__science__labeled_diagram__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__labeled_diagram__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__discovery__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "discovery",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__discovery__field_lab__v1.html",
+      "manifest": "g3_5__science__discovery__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__discovery__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g3_5__science__closing_checklist__field_lab__v1",
+      "grade_band": "g3_5",
+      "subject": "science",
+      "archetype": "closing_checklist",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__science__closing_checklist__field_lab__v1.html",
+      "manifest": "g3_5__science__closing_checklist__field_lab__v1.json",
+      "filled_example": "examples/g3_5__science__closing_checklist__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Caveat",
+        "body": "Caveat"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the field_lab grammar"
+    },
+    {
+      "template_id": "g6_8__math__cover__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "cover",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__cover__grid_studio__v1.html",
+      "manifest": "g6_8__math__cover__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__cover__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__warm_up__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "warm_up",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__warm_up__grid_studio__v1.html",
+      "manifest": "g6_8__math__warm_up__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__warm_up__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__concept__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "concept",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__concept__grid_studio__v1.html",
+      "manifest": "g6_8__math__concept__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__concept__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__worked_example__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "worked_example",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__worked_example__grid_studio__v1.html",
+      "manifest": "g6_8__math__worked_example__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__worked_example__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__your_turn__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "your_turn",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__your_turn__grid_studio__v1.html",
+      "manifest": "g6_8__math__your_turn__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__your_turn__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__math_visual__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "math_visual",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__math_visual__grid_studio__v1.html",
+      "manifest": "g6_8__math__math_visual__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__math_visual__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__challenge__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "challenge",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__challenge__grid_studio__v1.html",
+      "manifest": "g6_8__math__challenge__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__challenge__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__math__closing_checklist__grid_studio__v1",
+      "grade_band": "g6_8",
+      "subject": "math",
+      "archetype": "closing_checklist",
+      "style": "grid_studio",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__math__closing_checklist__grid_studio__v1.html",
+      "manifest": "g6_8__math__closing_checklist__grid_studio__v1.json",
+      "filled_example": "examples/g6_8__math__closing_checklist__grid_studio__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#14707A",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the grid_studio grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__cover__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "cover",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__cover__field_lab__v1.html",
+      "manifest": "g6_8__science__cover__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__cover__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__big_question__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "big_question",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__big_question__field_lab__v1.html",
+      "manifest": "g6_8__science__big_question__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__big_question__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__prediction__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "prediction",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__prediction__field_lab__v1.html",
+      "manifest": "g6_8__science__prediction__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__prediction__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__investigation__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "investigation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__investigation__field_lab__v1.html",
+      "manifest": "g6_8__science__investigation__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__investigation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__observation__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "observation",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__observation__field_lab__v1.html",
+      "manifest": "g6_8__science__observation__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__observation__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__labeled_diagram__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "labeled_diagram",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__labeled_diagram__field_lab__v1.html",
+      "manifest": "g6_8__science__labeled_diagram__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__labeled_diagram__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__discovery__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "discovery",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__discovery__field_lab__v1.html",
+      "manifest": "g6_8__science__discovery__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__discovery__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g6_8__science__closing_checklist__field_lab__v1",
+      "grade_band": "g6_8",
+      "subject": "science",
+      "archetype": "closing_checklist",
+      "style": "field_lab",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__science__closing_checklist__field_lab__v1.html",
+      "manifest": "g6_8__science__closing_checklist__field_lab__v1.json",
+      "filled_example": "examples/g6_8__science__closing_checklist__field_lab__v1__filled.html",
+      "fonts": {
+        "heading": "Inter",
+        "body": "Inter"
+      },
+      "accent": "#2F7D5B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable — Inter needs no rasterizing",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the field_lab grammar, middle-school variant"
+    },
+    {
+      "template_id": "g3_5__social_studies__cover__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "cover",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__cover__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__cover__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__cover__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__locate__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "locate",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__locate__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__locate__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__locate__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__timeline__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "timeline",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__timeline__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__timeline__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__timeline__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__evidence__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "evidence",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__evidence__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__evidence__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__evidence__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__cause_effect__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "cause_effect",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__cause_effect__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__cause_effect__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__cause_effect__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__compare__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "compare",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__compare__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__compare__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__compare__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__so_what__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "so_what",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__so_what__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__so_what__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__so_what__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g3_5__social_studies__closing_checklist__archive_desk__v1",
+      "grade_band": "g3_5",
+      "subject": "social_studies",
+      "archetype": "closing_checklist",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g3_5__social_studies__closing_checklist__archive_desk__v1.html",
+      "manifest": "g3_5__social_studies__closing_checklist__archive_desk__v1.json",
+      "filled_example": "examples/g3_5__social_studies__closing_checklist__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Andika",
+        "body": "Andika"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "screenshots — rasterize required",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__cover__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "cover",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__cover__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__cover__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__cover__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 1/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__locate__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "locate",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__locate__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__locate__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__locate__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 2/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__timeline__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "timeline",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__timeline__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__timeline__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__timeline__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 3/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__evidence__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "evidence",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__evidence__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__evidence__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__evidence__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 4/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__cause_effect__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "cause_effect",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__cause_effect__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__cause_effect__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__cause_effect__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 5/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__compare__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "compare",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__compare__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__compare__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__compare__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 6/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__so_what__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "so_what",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__so_what__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__so_what__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__so_what__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 7/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__social_studies__closing_checklist__archive_desk__v1",
+      "grade_band": "g6_8",
+      "subject": "social_studies",
+      "archetype": "closing_checklist",
+      "style": "archive_desk",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__social_studies__closing_checklist__archive_desk__v1.html",
+      "manifest": "g6_8__social_studies__closing_checklist__archive_desk__v1.json",
+      "filled_example": "examples/g6_8__social_studies__closing_checklist__archive_desk__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#40476B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "Slot 8/8 of the Archive Desk grammar"
+    },
+    {
+      "template_id": "g6_8__english__cover__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "cover",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__cover__notebook__v1.html",
+      "manifest": "g6_8__english__cover__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__cover__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "cover — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__todays_plan__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "todays_plan",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__todays_plan__notebook__v1.html",
+      "manifest": "g6_8__english__todays_plan__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__todays_plan__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "todays_plan — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__section_divider__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "section_divider",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__section_divider__notebook__v1.html",
+      "manifest": "g6_8__english__section_divider__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__section_divider__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "section_divider — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__image_bullets__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "image_bullets",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__image_bullets__notebook__v1.html",
+      "manifest": "g6_8__english__image_bullets__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__image_bullets__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "image_bullets — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__multi_image_grid__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "multi_image_grid",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__multi_image_grid__notebook__v1.html",
+      "manifest": "g6_8__english__multi_image_grid__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__multi_image_grid__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "multi_image_grid — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__vocabulary_card__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "vocabulary_card",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__vocabulary_card__notebook__v1.html",
+      "manifest": "g6_8__english__vocabulary_card__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__vocabulary_card__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "vocabulary_card — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__story_map__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "story_map",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__story_map__notebook__v1.html",
+      "manifest": "g6_8__english__story_map__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__story_map__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "story_map — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__reading_passage__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "reading_passage",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__reading_passage__notebook__v1.html",
+      "manifest": "g6_8__english__reading_passage__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__reading_passage__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "reading_passage — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__recall_list__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "recall_list",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__recall_list__notebook__v1.html",
+      "manifest": "g6_8__english__recall_list__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__recall_list__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "recall_list — middle-school variant of the notebook style"
+    },
+    {
+      "template_id": "g6_8__english__closing_checklist__notebook__v1",
+      "grade_band": "g6_8",
+      "subject": "language_arts",
+      "archetype": "closing_checklist",
+      "style": "notebook",
+      "version": 1,
+      "status": "pending_review",
+      "generated": "2026-08-19",
+      "html": "g6_8__english__closing_checklist__notebook__v1.html",
+      "manifest": "g6_8__english__closing_checklist__notebook__v1.json",
+      "filled_example": "examples/g6_8__english__closing_checklist__notebook__v1__filled.html",
+      "fonts": {
+        "heading": "Source Serif 4",
+        "body": "Source Serif 4",
+        "label": "Inter"
+      },
+      "accent": "#A8481B",
+      "validated": {
+        "canvas": true,
+        "geometry_matches_manifest": true,
+        "max_chars": "measured_in_browser",
+        "collision_checked": true,
+        "contrast_checked": true
+      },
+      "export": "editable",
+      "supersedes": null,
+      "notes": "closing_checklist — middle-school variant of the notebook style"
     }
   ],
   "next_up": [
-    "g11_12 core set (8 archetypes) — carries across all g11_12 subjects",
-    "g11_12 chemistry: formula_derivation, data_table",
-    "g9_10 core set"
-  ]
+    "9–10 academic surfaces (science first)",
+    "11–12 Exam Mastery grammar on the clean surface",
+    "Contrast pass over the g1_2/g3_5 variants of notebook, grid_studio and field_lab",
+    "Imagery pipeline — every style currently ships placeholder figures"
+  ],
+  "color_system": {
+    "direction": "subject_color_field",
+    "decided": "2026-08-19",
+    "palette_source": "styles/subject-accents.json",
+    "summary": "Accent header field with reverse type on content slides; white panels on a tinted page; full-bleed accent with reverse type on cover, section divider (left half) and closing checklist. Accent is per subject, one muted-academic family."
+  },
+  "style_axis": {
+    "source": "styles/styles.json",
+    "default": "clean",
+    "optional_param": true,
+    "summary": "style is an optional request param. Absent, unknown, or not applicable to the band/subject -> falls back to 'clean' per slide. Non-default styles insert their id into the filename before the version; clean templates keep their three-segment names."
+  },
+  "styles": {
+    "clean": {
+      "status": "active",
+      "bands": "all",
+      "subjects": "all",
+      "templates": 10
+    },
+    "notebook": {
+      "status": "active",
+      "bands": [
+        "g1_2",
+        "g3_5",
+        "g6_8"
+      ],
+      "subjects": [
+        "language_arts"
+      ],
+      "templates": 30,
+      "export": "rasterize for g1_2/g3_5; editable for g6_8",
+      "grammar": "Story / vocabulary / passage pages for language arts"
+    },
+    "grid_studio": {
+      "status": "active",
+      "bands": [
+        "g1_2",
+        "g3_5",
+        "g6_8"
+      ],
+      "subjects": [
+        "math"
+      ],
+      "templates": 24,
+      "export": "rasterize for g1_2/g3_5; editable for g6_8",
+      "grammar": "Warm-up → Concept → Worked Example → Your Turn → Challenge"
+    },
+    "field_lab": {
+      "status": "active",
+      "bands": [
+        "g1_2",
+        "g3_5",
+        "g6_8"
+      ],
+      "subjects": [
+        "science"
+      ],
+      "templates": 24,
+      "export": "rasterize for g1_2/g3_5; editable for g6_8",
+      "grammar": "Big Question → Prediction → Investigation → Observation → Discovery"
+    },
+    "archive_desk": {
+      "status": "active",
+      "bands": [
+        "g3_5",
+        "g6_8"
+      ],
+      "subjects": [
+        "social_studies"
+      ],
+      "templates": 16,
+      "export": "rasterize for g3_5; editable for g6_8",
+      "grammar": "Locate → Timeline → Evidence → Cause–Effect → Compare → So What"
+    }
+  },
+  "decisions": {
+    "band_boundaries": {
+      "decided": "2026-08-19",
+      "outcome": "KEEP g1_2 / g3_5 / g6_8 as defined in styles/grade-bands.json.",
+      "reason": "Target schools genuinely group grades 3–5 as one stage, so the repo's existing bands match how teachers already think. The earlier 1–3 / 4–5 tier sketch is superseded and should not be reintroduced.",
+      "consequence": "Grade 3 receives the g3_5 variant: joined handwriting (Caveat) where the style uses one, ~55 words per page, and type measured around grade 4. This is accepted, not overlooked.",
+      "revisit_if": "Teachers report grade 3 pupils struggling to read the joined face. The cheap mitigation is a font-only change — swap Caveat for Andika in the g3_5 variant of notebook and field_lab — which needs re-measuring but no re-banding and no new template ids.",
+      "closed": true
+    }
+  }
 }
