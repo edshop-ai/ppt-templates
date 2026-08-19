@@ -40,12 +40,34 @@ your example, one extra bullet, and one fewer bullet. Confirm nothing overflows 
 If long content would break the layout, state the max safe character count for each text field
 in your response.
 
-## Deliverable format
-Return exactly three things, in this order:
+## Shape + text composites (badges, pills, labeled swatches)
+Whenever a design element is a shape with text on top of it (a numbered circle badge, a pill
+label, a swatch with a caption beside it), report the shape and the text as two separate
+sibling entries in the manifest `elements` array — never nest one inside the other. Each gets
+its own `id`, its own `role` (`shape` for the background, `label` or `body_text` for the
+text), and its own `left/top/width/height`. This is the same pattern already used for legend
+swatches (`legend_1_color` as its own shape element, `legend_1_label` as its own text
+element) — apply it everywhere a shape carries text, including step-number badges. A
+conversion script walks one flat list of typed elements; a nested sub-object breaks that
+walk and needs special-casing per archetype, which doesn't scale across 20+ templates.
 
-1. A single self-contained HTML file (inline CSS in a `<style>` tag, no external CSS files)
-2. A JSON layout manifest matching `schemas/manifest-schema.json` exactly
-3. A one-paragraph note on which content field is most likely to overflow, and your
+## Filled example (required every time)
+Along with the token template and manifest, always also deliver a second HTML file with
+every `{{token}}` replaced by realistic sample content for the stated grade band and subject
+— named `{template_id}__filled.html`. Use content lengths that vary across the max_chars
+range (not all minimum, not all maximum) so the filled example itself is a useful visual QA
+artifact, not just a demo. This filled file is a required deliverable, not optional — a
+template isn't considered delivered without it.
+
+## Deliverable format
+Return exactly four things, in this order:
+
+1. A single self-contained HTML file (inline CSS in a `<style>` tag, no external CSS files) —
+   the token template
+2. A second self-contained HTML file — the filled example (see above)
+3. A JSON layout manifest matching `schemas/manifest-schema.json` exactly, with every shape
+   element carrying `shape_type` and, where relevant, `corner_radius`
+4. A one-paragraph note on which content field is most likely to overflow, and your
    recommended max character/word count for it
 
 ## Forbidden decoration
