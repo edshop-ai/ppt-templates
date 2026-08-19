@@ -1,0 +1,117 @@
+{
+  "$comment": "Shared geometry contract for every 1280x720 template, all bands and subjects. Type sizes vary per grade band (see grade-bands.json); these positions do NOT. Snapping to this grid is what keeps archetypes visually parallel across a deck.",
+  "canvas": {
+    "width": 1280,
+    "height": 720
+  },
+  "margins": {
+    "left": 64,
+    "right": 64,
+    "top": 48,
+    "bottom": 54
+  },
+  "content_width": 1152,
+  "header_block": {
+    "eyebrow": {
+      "left": 64,
+      "top": 48,
+      "width": 1152,
+      "height": 20
+    },
+    "title": {
+      "left": 64,
+      "top": 74,
+      "width": 1152,
+      "height": 44,
+      "single_line": true
+    },
+    "standfirst": {
+      "left": 64,
+      "top": 126,
+      "width": 900,
+      "height": 48,
+      "optional": true
+    },
+    "body_top_no_standfirst": 164,
+    "body_top_with_standfirst": 230,
+    "$comment": "No divider rule under the title, ever (master-prompt.md, Forbidden decoration). The gap from title/standfirst to body_top IS the separation."
+  },
+  "footer_block": {
+    "caption": {
+      "top": 628,
+      "height": 38,
+      "optional": true
+    },
+    "source_citation": {
+      "top": 648,
+      "height": 18
+    },
+    "min_clearance_above_citation": 20
+  },
+  "two_pane_split": {
+    "$comment": "labeled_diagram, image_bullets, code_block, formula_derivation.",
+    "pane_a": {
+      "left": 64,
+      "width": 660
+    },
+    "gutter": {
+      "left": 724,
+      "width": 48
+    },
+    "pane_b": {
+      "left": 772,
+      "width": 444
+    },
+    "figure_well_inset": 12
+  },
+  "column_grid_5": {
+    "$comment": "process_flow, multi_image_grid, agenda. Use the first N lefts for N items; a shorter row stays left-aligned by design.",
+    "item_width": 200,
+    "gap": 38,
+    "lefts": [
+      64,
+      302,
+      540,
+      778,
+      1016
+    ],
+    "card_inset": 24,
+    "connector_slots": [
+      {
+        "left": 274,
+        "width": 24
+      },
+      {
+        "left": 512,
+        "width": 24
+      },
+      {
+        "left": 750,
+        "width": 24
+      },
+      {
+        "left": 988,
+        "width": 24
+      }
+    ]
+  },
+  "list_pitch": {
+    "$comment": "Vertical pitch for legend / recall / checklist rows. Pitch must exceed the row content box by >=20px so a worst-case 2-line description never reads as cramped.",
+    "row_content_height": 68,
+    "pitch": 90,
+    "first_row_top": 196,
+    "max_rows": 5
+  },
+  "badge": {
+    "width": 34,
+    "height": 34,
+    "shape_type": "circle",
+    "corner_radius": 17
+  },
+  "swatch": {
+    "width": 14,
+    "height": 14,
+    "shape_type": "rounded_rect",
+    "corner_radius": 3
+  }
+}
