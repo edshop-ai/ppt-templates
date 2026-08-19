@@ -26,7 +26,16 @@
           "font": { "type": "string" },
           "font_size_pt": { "type": "number" },
           "color_hex": { "type": "string" },
-          "max_chars": { "type": "number" }
+          "max_chars": { "type": "number" },
+          "shape_type": {
+            "type": "string",
+            "enum": ["rect", "rounded_rect", "circle", "line", "arrow", "pill"],
+            "description": "Required when role is 'shape'. 'arrow' must be reported as its own element, never merged with an adjacent line — PowerPoint has a native arrow connector shape and the conversion script needs to target it directly."
+          },
+          "corner_radius": {
+            "type": "number",
+            "description": "px, only for rounded_rect/pill shapes"
+          }
         }
       }
     },
